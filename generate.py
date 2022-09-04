@@ -58,8 +58,10 @@ class Generate_new_string():
             # на каждой итерации добавляем одно из прололжений для слова - случайно
             sequence.append(np.random.choice(word_dict[sequence[-1]]))
 
-        # вывод последовательности
-        print(' '.join(sequence))
+
+        # выводим нашу последовательность в файл generated.txt
+        with open('generated.txt', 'w') as file2:
+            file2.write(' '.join(sequence))
 
     # блок, обрабатывающий ввод и запускающий обучение, а затем и генерацию
     def Main(input_txt, lenght):
@@ -67,4 +69,3 @@ class Generate_new_string():
         Generate_new_string.generate(sp_txt, lenght)
 
 Generate_new_string.Main(input("Write filename of text with filename extension\n"), int(input("Enter number of words in the new sequence\n")))
-
